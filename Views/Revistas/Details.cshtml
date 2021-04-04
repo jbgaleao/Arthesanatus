@@ -1,0 +1,59 @@
+﻿@model Arthesanatus.Models.Revista
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+<br />
+<div>
+    <h4>Revista</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnoEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnoEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MesEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MesEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tema)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Foto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.RevistaID }) |
+    @Html.ActionLink( "Retornar à Listagem", "Index")
+</p>

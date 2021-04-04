@@ -1,0 +1,54 @@
+﻿@model Arthesanatus.Models.Receita
+
+@{
+    ViewBag.Title = "Exclusão de Registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/Site.css" />
+</head>
+
+<h2>@ViewBag.Title</h2>
+<div class="aviso-exclusao">
+    <h4>Está certo de Excluir este Registro?</h4>
+</div>
+
+<div>
+    <h4>Receita</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Revista.Tema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Revista.Tema)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink( "Retornar à Listagem", "Index")
+        </div>
+    }
+</div>

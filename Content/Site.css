@@ -22,3 +22,12 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.aviso-exclusao {
+    text-align: center;
+    vertical-align: central;
+    background-color: #d9534f;
+    color: #ffffff;
+    padding-block: 3px;
+}
+

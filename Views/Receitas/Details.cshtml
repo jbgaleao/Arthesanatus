@@ -1,0 +1,43 @@
+﻿@model Arthesanatus.Models.Receita
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+<br />
+<div>
+    <h4>Receita</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor( model => model.Revista.Tema )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor( model => model.Revista.Tema )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor( model => model.Nome )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor( model => model.Nome )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor( model => model.Descricao )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor( model => model.Descricao )
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink( "Editar", "Edit", new { id = Model.ReceitaId } ) |
+    @Html.ActionLink( "Retornar à Listagem", "Index" )
+</p>

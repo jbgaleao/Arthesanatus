@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Arthesanatus.Models.Receita>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listagem de Receitas</h2>
+<br />
+<p>
+    @Html.ActionLink( "Cadastrar Receita", "Create" )
+</p>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor( model => model.Revista.Tema )
+        </th>
+        <th>
+            @Html.DisplayNameFor( model => model.Nome )
+        </th>
+        <th>
+            @Html.DisplayNameFor( model => model.Descricao )
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach( var item in Model )
+    {
+<tr>
+    <td>
+        @Html.DisplayFor( modelItem => item.Revista.Tema )
+    </td>
+    <td>
+        @Html.DisplayFor( modelItem => item.Nome )
+    </td>
+    <td>
+        @Html.DisplayFor( modelItem => item.Descricao )
+    </td>
+    <td>
+        @Html.ActionLink( "Editar", "Edit", new { id = item.ReceitaId } ) |
+        @Html.ActionLink( "Detalhes", "Details", new { id = item.ReceitaId } ) |
+        @Html.ActionLink( "Excluir", "Delete", new { id = item.ReceitaId } )
+    </td>
+</tr>
+    }
+
+</table>

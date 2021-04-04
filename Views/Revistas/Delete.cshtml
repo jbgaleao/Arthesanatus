@@ -1,0 +1,70 @@
+﻿@model Arthesanatus.Models.Revista
+
+@{
+    ViewBag.Title = "Exclusão de Registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/Site.css" />
+</head>
+
+<h2>@ViewBag.Title</h2>
+<div class="aviso-exclusao">
+    <h4>Está certo de Excluir este Registro?</h4>
+</div>
+
+<div>
+    <h3>Revista</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnoEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnoEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MesEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MesEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tema)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Foto)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+            @Html.ActionLink("Retornar à Listagem", "Index")
+        </div>
+    }
+</div>
