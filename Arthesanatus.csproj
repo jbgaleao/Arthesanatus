@@ -136,6 +136,10 @@
     <Compile Include="Migrations\202104040115226_InitialCreate.designer.cs">
       <DependentUpon>202104040115226_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104060550064_AdicionaClassesRestantes.cs" />
+    <Compile Include="Migrations\202104060550064_AdicionaClassesRestantes.Designer.cs">
+      <DependentUpon>202104060550064_AdicionaClassesRestantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\ArthesContext.cs" />
     <Compile Include="Models\Cor.cs" />
@@ -220,6 +224,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104040115226_InitialCreate.resx">
       <DependentUpon>202104040115226_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104060550064_AdicionaClassesRestantes.resx">
+      <DependentUpon>202104060550064_AdicionaClassesRestantes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
