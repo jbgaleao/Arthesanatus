@@ -4,21 +4,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Arthesanatus.Models
 {
-    [Table( "Receita" )]
-    public class Receita
+    [Table( "TipoLinha" )]
+    public class TipoLinha
     {
-        public Receita( )
+        public TipoLinha( )
         {
             this.Linhas = new HashSet<Linha>();
+            this.Cores = new HashSet<Cor>();
         }
 
-
         [Key]
-        public int ReceitaId { get; set; }
+        public int TipoLinhaID { get; set; }
 
         [Required]
-        [MaxLength( 150 )]
-        [Display( Name = "Nome:" )]
+        [MaxLength( 100 )]
+        [Display( Name = "Nome da Linha:" )]
         public string Nome { get; set; }
 
         [Required]
@@ -28,13 +28,13 @@ namespace Arthesanatus.Models
         public string Descricao { get; set; }
 
         [Required]
-        [ForeignKey( "Revista" )]
-        [Display( Name = "Tema da Revista:" )]
-        public int RevistaId { get; set; }
-        public virtual Revista Revista { get; set; }
+        [MaxLength( 8000 )]
+        [Display( Name = "Dados Técnicos:" )]
+        [DataType( DataType.MultilineText )]
+        public string DadosTecnicos { get; set; }
 
 
         public virtual ICollection<Linha> Linhas { get; set; }
-
+        public virtual ICollection<Cor> Cores { get; set; }
     }
 }

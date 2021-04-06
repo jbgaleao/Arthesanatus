@@ -138,9 +138,13 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\ArthesContext.cs" />
+    <Compile Include="Models\Cor.cs" />
+    <Compile Include="Models\Fabricante.cs" />
+    <Compile Include="Models\Linha.cs" />
     <Compile Include="Models\Mes.cs" />
     <Compile Include="Models\Receita.cs" />
     <Compile Include="Models\Revista.cs" />
+    <Compile Include="Models\TipoLinha.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

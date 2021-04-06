@@ -14,7 +14,13 @@ namespace Arthesanatus.Models.Context
 
         }
 
-        public DbSet<Revista> REVISTAS { get; set; }
+        public DbSet<Cor> CORES { get; set; }
+        public DbSet<Fabricante> FABRICANTES { get; set; }
+        public DbSet<Linha> LINHAS { get; set; }
         public DbSet<Receita> RECEITAS { get; set; }
+        public DbSet<Revista> REVISTAS { get; set; }
+        public DbSet<TipoLinha> TIPOSLINHAS { get; set; }
+
+
     }
 }
