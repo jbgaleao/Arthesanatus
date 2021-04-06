@@ -126,9 +126,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CoresController.cs" />
+    <Compile Include="Controllers\FabricantesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LinhasController.cs" />
     <Compile Include="Controllers\ReceitasController.cs" />
     <Compile Include="Controllers\RevistasController.cs" />
+    <Compile Include="Controllers\TipoLinhasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,9 +208,30 @@
     <Content Include="Views\Receitas\Details.cshtml" />
     <Content Include="Views\Receitas\Edit.cshtml" />
     <Content Include="Views\Receitas\Index.cshtml" />
+    <Content Include="Views\Fabricantes\Create.cshtml" />
+    <Content Include="Views\Fabricantes\Delete.cshtml" />
+    <Content Include="Views\Fabricantes\Details.cshtml" />
+    <Content Include="Views\Fabricantes\Edit.cshtml" />
+    <Content Include="Views\Fabricantes\Index.cshtml" />
+    <Content Include="Views\TipoLinhas\Create.cshtml" />
+    <Content Include="Views\TipoLinhas\Delete.cshtml" />
+    <Content Include="Views\TipoLinhas\Details.cshtml" />
+    <Content Include="Views\TipoLinhas\Edit.cshtml" />
+    <Content Include="Views\TipoLinhas\Index.cshtml" />
+    <Content Include="Views\Cores\Create.cshtml" />
+    <Content Include="Views\Cores\Delete.cshtml" />
+    <Content Include="Views\Cores\Details.cshtml" />
+    <Content Include="Views\Cores\Edit.cshtml" />
+    <Content Include="Views\Cores\Index.cshtml" />
+    <Content Include="Views\Linhas\Create.cshtml" />
+    <Content Include="Views\Linhas\Delete.cshtml" />
+    <Content Include="Views\Linhas\Details.cshtml" />
+    <Content Include="Views\Linhas\Edit.cshtml" />
+    <Content Include="Views\Linhas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
