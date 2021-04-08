@@ -18,24 +18,30 @@ namespace Arthesanatus.Models
         public int LinhaID { get; set; }
 
         [Required]
-        [Display( Name = "Novelos Fechados:" )]
+        [Display( Name = "Novelos Fechados" )]
         public int QtdFechada { get; set; }
 
         [Required]
-        [Display( Name = "Novelos Abertos:" )]
+        [Display( Name = "Novelos Abertos" )]
         public int QtdAberta { get; set; }
 
         [Required]
         [ForeignKey( "TipoLinha" )]
-        [Display( Name = "Tipo da Linha:" )]
+        [Display( Name = "Tipo da Linha" )]
         public int TipoLinhaID { get; set; }
         public virtual TipoLinha TipoLinha { get; set; }
 
         [Required]
         [ForeignKey( "Fabricante" )]
-        [Display( Name = "Fabricante:" )]
+        [Display( Name = "Fabricante" )]
         public int FabricanteID { get; set; }
         public virtual Fabricante Fabricante { get; set; }
+
+        [Required]
+        [ForeignKey( "Cor" )]
+        [Display( Name = "Cor" )]
+        public int CorID { get; set; }
+        public virtual Cor Cor { get; set; }
 
 
         public virtual ICollection<Receita> Receitas { get; set; }

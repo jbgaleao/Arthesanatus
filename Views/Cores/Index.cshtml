@@ -8,13 +8,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New","Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoLinha.Nome)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.CorCodigo)
         </th>
@@ -24,23 +21,23 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoLinha.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CorCodigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CorID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CorID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CorID })
-        </td>
-    </tr>
-}
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorCodigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Editar","Edit",new { id = item.CorID },new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Detalhes","Details",new { id = item.CorID },new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Excluir","Delete",new { id = item.CorID },new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
-</table>
+</table> 
+
+@Html.ActionLink("Query","TestaCores","Cores",new { @class = "btn btn-primary" })

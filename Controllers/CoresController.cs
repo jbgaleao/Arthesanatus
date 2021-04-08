@@ -11,106 +11,101 @@ using Arthesanatus.Models.Context;
 
 namespace Arthesanatus.Controllers
 {
-    public class CoresController : Controller
+    public class CoresController:Controller
     {
         private ArthesContext db = new ArthesContext();
 
-        // GET: Cors
+        // GET: Cores
         public ActionResult Index()
         {
-            var cORES = db.CORES.Include(c => c.TipoLinha);
-            return View(cORES.ToList());
+            return View(db.CORES.ToList());
         }
 
-        // GET: Cors/Details/5
+        // GET: Cores/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Cor cor = db.CORES.Find(id);
-            if (cor == null)
+            if(cor == null)
             {
                 return HttpNotFound();
             }
             return View(cor);
         }
 
-        // GET: Cors/Create
+        // GET: Cores/Create
         public ActionResult Create()
         {
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome");
             return View();
         }
 
-        // POST: Cors/Create
+        // POST: Cores/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CorID,CorCodigo,Nome,TipoLinhaID")] Cor cor)
+        public ActionResult Create([Bind(Include = "CorID,CorCodigo,Nome")] Cor cor)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 db.CORES.Add(cor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", cor.TipoLinhaID);
             return View(cor);
         }
 
-        // GET: Cors/Edit/5
+        // GET: Cores/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Cor cor = db.CORES.Find(id);
-            if (cor == null)
+            if(cor == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", cor.TipoLinhaID);
             return View(cor);
         }
 
-        // POST: Cors/Edit/5
+        // POST: Cores/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CorID,CorCodigo,Nome,TipoLinhaID")] Cor cor)
+        public ActionResult Edit([Bind(Include = "CorID,CorCodigo,Nome")] Cor cor)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 db.Entry(cor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", cor.TipoLinhaID);
             return View(cor);
         }
 
-        // GET: Cors/Delete/5
+        // GET: Cores/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Cor cor = db.CORES.Find(id);
-            if (cor == null)
+            if(cor == null)
             {
                 return HttpNotFound();
             }
             return View(cor);
         }
 
-        // POST: Cors/Delete/5
+        // POST: Cores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -121,9 +116,19 @@ namespace Arthesanatus.Controllers
             return RedirectToAction("Index");
         }
 
+        public IEnumerable<Cor> TestaCores()
+        {
+            var query = (from c in db.CORES
+                         where c.Nome.Contains("ama")
+                         select c);
+
+            return query;
+
+        }
+
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
+            if(disposing)
             {
                 db.Dispose();
             }

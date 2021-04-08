@@ -11,17 +11,17 @@ using Arthesanatus.Models.Context;
 
 namespace Arthesanatus.Controllers
 {
-    public class TipoLinhasController : Controller
+    public class TiposLinhaController : Controller
     {
         private ArthesContext db = new ArthesContext();
 
-        // GET: TipoLinhas
+        // GET: TiposLinha
         public ActionResult Index()
         {
             return View(db.TIPOSLINHAS.ToList());
         }
 
-        // GET: TipoLinhas/Details/5
+        // GET: TiposLinha/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,13 +36,13 @@ namespace Arthesanatus.Controllers
             return View(tipoLinha);
         }
 
-        // GET: TipoLinhas/Create
+        // GET: TiposLinha/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: TipoLinhas/Create
+        // POST: TiposLinha/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +59,7 @@ namespace Arthesanatus.Controllers
             return View(tipoLinha);
         }
 
-        // GET: TipoLinhas/Edit/5
+        // GET: TiposLinha/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,7 +74,7 @@ namespace Arthesanatus.Controllers
             return View(tipoLinha);
         }
 
-        // POST: TipoLinhas/Edit/5
+        // POST: TiposLinha/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,7 +90,7 @@ namespace Arthesanatus.Controllers
             return View(tipoLinha);
         }
 
-        // GET: TipoLinhas/Delete/5
+        // GET: TiposLinha/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +105,7 @@ namespace Arthesanatus.Controllers
             return View(tipoLinha);
         }
 
-        // POST: TipoLinhas/Delete/5
+        // POST: TiposLinha/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

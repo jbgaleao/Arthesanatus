@@ -18,7 +18,7 @@ namespace Arthesanatus.Controllers
         // GET: Linhas
         public ActionResult Index()
         {
-            var lINHAS = db.LINHAS.Include(l => l.Fabricante).Include(l => l.TipoLinha);
+            var lINHAS = db.LINHAS.Include(l => l.Cor).Include(l => l.Fabricante).Include(l => l.TipoLinha);
             return View(lINHAS.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace Arthesanatus.Controllers
         // GET: Linhas/Create
         public ActionResult Create()
         {
+            ViewBag.CorID = new SelectList(db.CORES, "CorID", "Nome");
             ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome");
             ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome");
             return View();
@@ -50,7 +51,7 @@ namespace Arthesanatus.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LinhaID,QtdFechada,QtdAberta,TipoLinhaID,FabricanteID")] Linha linha)
+        public ActionResult Create([Bind(Include = "LinhaID,QtdFechada,QtdAberta,TipoLinhaID,FabricanteID,CorID")] Linha linha)
         {
             if (ModelState.IsValid)
             {
@@ -59,6 +60,7 @@ namespace Arthesanatus.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CorID = new SelectList(db.CORES, "CorID", "Nome", linha.CorID);
             ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome", linha.FabricanteID);
             ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", linha.TipoLinhaID);
             return View(linha);
@@ -76,6 +78,7 @@ namespace Arthesanatus.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CorID = new SelectList(db.CORES, "CorID", "Nome", linha.CorID);
             ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome", linha.FabricanteID);
             ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", linha.TipoLinhaID);
             return View(linha);
@@ -86,7 +89,7 @@ namespace Arthesanatus.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LinhaID,QtdFechada,QtdAberta,TipoLinhaID,FabricanteID")] Linha linha)
+        public ActionResult Edit([Bind(Include = "LinhaID,QtdFechada,QtdAberta,TipoLinhaID,FabricanteID,CorID")] Linha linha)
         {
             if (ModelState.IsValid)
             {
@@ -94,6 +97,7 @@ namespace Arthesanatus.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CorID = new SelectList(db.CORES, "CorID", "Nome", linha.CorID);
             ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome", linha.FabricanteID);
             ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", linha.TipoLinhaID);
             return View(linha);

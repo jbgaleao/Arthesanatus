@@ -50,9 +50,9 @@
             @Html.DisplayFor(modelItem => item.Foto)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.RevistaID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.RevistaID }) |
-            @Html.ActionLink("Excluir", "Delete", new { id=item.RevistaID })
+            @Html.ActionLink("Editar","Edit",new { id = item.RevistaID },new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Detalhes","Details",new { id = item.RevistaID }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Excluir","Delete",new { id = item.RevistaID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

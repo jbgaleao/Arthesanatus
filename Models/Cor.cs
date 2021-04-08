@@ -7,22 +7,23 @@ namespace Arthesanatus.Models
     [Table( "Cor" )]
     public class Cor
     {
+        public Cor()
+        {
+            this.Linhas = new HashSet<Linha>();
+        }
+
         [Key]
         public int CorID { get; set; }
 
         [Required]
-        [Display( Name = "Código da Cor:" )]
+        [Display( Name = "Código da Cor" )]
         public int CorCodigo { get; set; }
 
         [Required]
         [MaxLength( 50 )]
-        [Display( Name = "Nome da Cor:" )]
+        [Display( Name = "Nome da Cor" )]
         public string Nome { get; set; }
 
-        [Required]
-        [ForeignKey( "TipoLinha" )]
-        [Display( Name = "Tipo da Linha:" )]
-        public int TipoLinhaID { get; set; }
-        public virtual TipoLinha TipoLinha { get; set; }
+        public virtual ICollection<Linha> Linhas { get; set; }
     }
 }

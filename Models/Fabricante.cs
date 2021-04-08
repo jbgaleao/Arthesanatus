@@ -17,7 +17,7 @@ namespace Arthesanatus.Models
 
         [Required]
         [MaxLength( 100 )]
-        [Display( Name = "Nome do Fabricante:" )]
+        [Display( Name = "Nome do Fabricante" )]
         public string Nome { get; set; }
 
         public virtual ICollection<Linha> Linhas { get; set; }

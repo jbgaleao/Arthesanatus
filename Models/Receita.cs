@@ -18,18 +18,18 @@ namespace Arthesanatus.Models
 
         [Required]
         [MaxLength( 150 )]
-        [Display( Name = "Nome:" )]
+        [Display( Name = "Nome" )]
         public string Nome { get; set; }
 
         [Required]
         [MaxLength( 8000 )]
-        [Display( Name = "Descrição:" )]
+        [Display( Name = "Descrição" )]
         [DataType( DataType.MultilineText )]
         public string Descricao { get; set; }
 
         [Required]
         [ForeignKey( "Revista" )]
-        [Display( Name = "Tema da Revista:" )]
+        [Display( Name = "Tema da Revista" )]
         public int RevistaId { get; set; }
         public virtual Revista Revista { get; set; }
 

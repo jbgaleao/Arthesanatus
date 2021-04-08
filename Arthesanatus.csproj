@@ -132,7 +132,7 @@
     <Compile Include="Controllers\LinhasController.cs" />
     <Compile Include="Controllers\ReceitasController.cs" />
     <Compile Include="Controllers\RevistasController.cs" />
-    <Compile Include="Controllers\TipoLinhasController.cs" />
+    <Compile Include="Controllers\TiposLinhaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -143,6 +143,14 @@
     <Compile Include="Migrations\202104060550064_AdicionaClassesRestantes.cs" />
     <Compile Include="Migrations\202104060550064_AdicionaClassesRestantes.Designer.cs">
       <DependentUpon>202104060550064_AdicionaClassesRestantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104080148372_AlteracaoBD.cs" />
+    <Compile Include="Migrations\202104080148372_AlteracaoBD.Designer.cs">
+      <DependentUpon>202104080148372_AlteracaoBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104080233419_AlteraLinaCorTipoLinha.cs" />
+    <Compile Include="Migrations\202104080233419_AlteraLinaCorTipoLinha.Designer.cs">
+      <DependentUpon>202104080233419_AlteraLinaCorTipoLinha.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\ArthesContext.cs" />
@@ -213,11 +221,11 @@
     <Content Include="Views\Fabricantes\Details.cshtml" />
     <Content Include="Views\Fabricantes\Edit.cshtml" />
     <Content Include="Views\Fabricantes\Index.cshtml" />
-    <Content Include="Views\TipoLinhas\Create.cshtml" />
-    <Content Include="Views\TipoLinhas\Delete.cshtml" />
-    <Content Include="Views\TipoLinhas\Details.cshtml" />
-    <Content Include="Views\TipoLinhas\Edit.cshtml" />
-    <Content Include="Views\TipoLinhas\Index.cshtml" />
+    <Content Include="Views\TiposLinha\Create.cshtml" />
+    <Content Include="Views\TiposLinha\Delete.cshtml" />
+    <Content Include="Views\TiposLinha\Details.cshtml" />
+    <Content Include="Views\TiposLinha\Edit.cshtml" />
+    <Content Include="Views\TiposLinha\Index.cshtml" />
     <Content Include="Views\Cores\Create.cshtml" />
     <Content Include="Views\Cores\Delete.cshtml" />
     <Content Include="Views\Cores\Details.cshtml" />
@@ -231,6 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Repository\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +261,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104060550064_AdicionaClassesRestantes.resx">
       <DependentUpon>202104060550064_AdicionaClassesRestantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104080148372_AlteracaoBD.resx">
+      <DependentUpon>202104080148372_AlteracaoBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104080233419_AlteraLinaCorTipoLinha.resx">
+      <DependentUpon>202104080233419_AlteraLinaCorTipoLinha.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

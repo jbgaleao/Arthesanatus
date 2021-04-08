@@ -27,23 +27,22 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            @*<li>@Html.ActionLink( "Tipos de Linhas", "Index", "Tiposlinhas" )</li>
-                            <li>@Html.ActionLink( "Fabricantes", "Index", "Fabricantes" )</li>*@
-                            <li>@Html.ActionLink( "Receitas", "Index", "Receitas" )</li>
-                            <li>@Html.ActionLink( "Revistas", "Index", "Revistas" )</li>
+                            <li>@Html.ActionLink("Cores das Linhas","Index","Cores")</li>
+                            <li>@Html.ActionLink("Fabricantes","Index","Fabricantes")</li>
+                            <li>@Html.ActionLink("Linhas","Index","Linhas")</li>
+                            <li>@Html.ActionLink("Receitas","Index","Receitas")</li>
+                            <li>@Html.ActionLink("Revistas","Index","Revistas")</li>
+                            <li>@Html.ActionLink("Tipos de Linhas","Index","TiposLinha")</li>
                         </ul>
                     </li>
 
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Cadastros
+                            Associar
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink( "Tipos de Linhas", "Create", "Tiposlinhas" )</li>
-                            <li>@Html.ActionLink( "Fabricantes", "Create", "Fabricantes" )</li>
-                            <li>@Html.ActionLink( "Receitas", "CadReceitas", "Cadastro" )</li>
-                            <li>@Html.ActionLink( "Revistas", "Create", "Revistas" )</li>
+                            <li>@Html.ActionLink( "Linhas x Receitas", "Index","LinhasReceitas")</li>
                         </ul>
                     </li>
 
@@ -58,34 +57,12 @@
                     </li>
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Consultas
+                            Pesquisas
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink( "Receitas", "ConReceitas", "Consultas" )</li>
                             <li>@Html.ActionLink( "Revistas", "ConReceitas", "Revistas" )</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Relatórios
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink( "Gastos Semanais", "RelGastosSemana", "Relatorio" )</li>
-                            <li>@Html.ActionLink( "Gastos Mensais", "RelGastosMes", "Relatorio" )</li>
-                            <li>@Html.ActionLink( "Gastos por Período", "RelGastosPeriodo", "Relatorio" )</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Gráficos
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink( "Compras Semanais", "GrafComprasSemana", "Grafico" )</li>
-                            <li>@Html.ActionLink( "Compras Mensais", "GrafComprasMes", "Grafico" )</li>
-                            <li>@Html.ActionLink( "Compras por Período", "GrafComprasPeriodo", "Grafico" )</li>
                         </ul>
                     </li>
                 </ul>
