@@ -270,7 +270,8 @@ th {
 }
 @font-face {
     font-family: "Arthes";
-    src: url("../fonts/GrandmaRules.otf");
+    font-size: 72px;
+    src: url("../fonts/Butterfly.ttf");
 }
 .glyphicon {
   position: relative;

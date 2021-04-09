@@ -1,15 +1,17 @@
 ﻿@model IEnumerable<Arthesanatus.Models.Linha>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listagem";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2>Listagem</h2>
+<h4>Linhas</h4>
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar Novo Registro","Create")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -27,32 +29,35 @@
         <th>
             @Html.DisplayNameFor(model => model.QtdAberta)
         </th>
-        <th></th>
+        <th style="width: 21%" class="text-right">
+            @Html.Label("Ações")
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cor.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fabricante.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoLinha.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QtdFechada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QtdAberta)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LinhaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LinhaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LinhaID })
-        </td>
-    </tr>
-}
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cor.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fabricante.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoLinha.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdFechada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdAberta)
+            </td>
+            <td class="text-right">
+                @Html.ActionLink("Editar","Edit",new { id = item.LinhaID },new { @class = "btn btn-primary" })
+                @Html.ActionLink("Detalhes","Details",new { id = item.LinhaID },new { @class = "btn btn-warning" })
+                @Html.ActionLink("Excluir","Delete",new { id = item.LinhaID },new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>

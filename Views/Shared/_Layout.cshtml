@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Amigurumis</title>
-    @Styles.Render( "~/Content/css" )
-    @Scripts.Render( "~/bundles/modernizr" )
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 
 <body>
@@ -17,8 +17,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink( "Geana Arthesanatus", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" } )
+                @Html.ActionLink("Geana Arthesanatus","Index","Home",new { area = "" },new { @class = "navbar-brand" })
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>
@@ -35,24 +36,22 @@
                             <li>@Html.ActionLink("Tipos de Linhas","Index","TiposLinha")</li>
                         </ul>
                     </li>
-
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Associar
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink( "Linhas x Receitas", "Index","LinhasReceitas")</li>
+                            <li>@Html.ActionLink("Linhas x Receitas","Index","LinhasReceitas")</li>
                         </ul>
                     </li>
-
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Inventário<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink( "Entrada de Linhas", "EstEntrada", "Estoque" )</li>
-                            <li>@Html.ActionLink( "Estoque de Linhas", "EstManutencao", "Estoque" )</li>
+                            <li>@Html.ActionLink("Entrada de Linhas","EstEntrada","Estoque")</li>
+                            <li>@Html.ActionLink("Estoque de Linhas","EstManutencao","Estoque")</li>
                         </ul>
                     </li>
                     <li>
@@ -61,25 +60,33 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink( "Receitas", "ConReceitas", "Consultas" )</li>
-                            <li>@Html.ActionLink( "Revistas", "ConReceitas", "Revistas" )</li>
+                            <li>@Html.ActionLink("Receitas","ConReceitas","Consultas")</li>
+                            <li>@Html.ActionLink("Revistas","ConReceitas","Revistas")</li>
                         </ul>
                     </li>
                 </ul>
             </div>
+
         </div>
     </div>
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Arthes & Geana</p>
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <div class="container" style="padding-top:10px;">
+                    <p class="pull-right">&copy; @DateTime.Now.Year - Arthes & Geana</p>
+                </div>
+            </nav>
         </footer>
     </div>
 
-    @Scripts.Render( "~/bundles/jquery" )
-    @Scripts.Render( "~/bundles/bootstrap" )
-    @RenderSection( "scripts", required: false )
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts",required: false)
+
 </body>
 
 </html>

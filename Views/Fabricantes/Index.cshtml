@@ -1,34 +1,39 @@
 ﻿@model IEnumerable<Arthesanatus.Models.Fabricante>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listagem";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2>Listagem</h2>
+<h4>Fabricantes</h4>
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar Novo Registro","Create")
 </p>
+
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
-        <th></th>
+        <th style="width: 21%" class="text-right">
+            @Html.Label("Ações")
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FabricanteID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FabricanteID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FabricanteID })
-        </td>
-    </tr>
-}
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td class="text-right">
+                @Html.ActionLink("Editar","Edit",new { id = item.FabricanteID },new { @class = "btn btn-primary" })
+                @Html.ActionLink("Detalhes","Details",new { id = item.FabricanteID },new { @class = "btn btn-warning" })
+                @Html.ActionLink("Excluir","Delete",new { id = item.FabricanteID },new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
 
 </table>
