@@ -8,38 +8,65 @@
 <h2>Listagem</h2>
 <h4>Cores das Linhas</h4>
 <br />
-<p>
-    @Html.ActionLink("Cadastrar Novo Registro","Create")
-</p>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CorCodigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th style="width: 21%" class="text-right">
-            @Html.Label("Ações")
-        </th>
-    </tr>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading" style="font-weight:bolder;">Cores</div>
+    <div class="panel-body">
+        <div>
+            <div class="navbar-form navbar-left col-lg-4" style="padding-top:8px;">
+                @Html.ActionLink("Cadastrar Novo Registro","Create")
+            </div>
+            <form class="navbar-form navbar-right col-lg-4" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Código/Nome" id="parametro">
+                </div>
+                @Html.ActionLink("Pesquisar","Index",new { ChaveBusca = "pa"},new { @class = "btn btn-primary" })
+                @*<button type="submit" value="buscar" class="btn btn-default">Pesquisar</button>*@
+            </form>
+        </div>
 
-    @foreach(var item in Model)
-    {
+    </div>
+
+    <!-- Table -->
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CorCodigo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td class="text-right">
-                @Html.ActionLink("Editar","Edit",new { id = item.CorID },new { @class = "btn btn-primary" })
-                @Html.ActionLink("Detalhes","Details",new { id = item.CorID },new { @class = "btn btn-warning" })
-                @Html.ActionLink("Excluir","Delete",new { id = item.CorID },new { @class = "btn btn-danger" })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.CorCodigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th style="width: 21%" class="text-right">
+                @Html.Label("Ações")
+            </th>
         </tr>
-    }
 
-</table>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CorCodigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td class="text-right">
+                    @Html.ActionLink("Editar","Edit",new { id = item.CorID },new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Detalhes","Details",new { id = item.CorID },new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Excluir","Delete",new { id = item.CorID },new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<script>
+    function captutaParametro() {
+        return document.getElementById("parametro").value
+    }
+</script>
+
+
+

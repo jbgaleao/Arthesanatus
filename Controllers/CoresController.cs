@@ -16,9 +16,18 @@ namespace Arthesanatus.Controllers
         private ArthesContext db = new ArthesContext();
 
         // GET: Cores
-        public ActionResult Index()
+        public ActionResult Index(string ChaveBusca = "")
         {
-            return View(db.CORES.ToList());
+            var q = db.CORES.AsQueryable();
+
+            if(!string.IsNullOrEmpty(ChaveBusca))
+            {
+                q = q.Where(p => p.Nome.Contains(ChaveBusca));
+            }
+
+            q = q.OrderBy(p => p.Nome);
+
+            return View(q.ToList());
         }
 
         // GET: Cores/Details/5
@@ -125,7 +134,6 @@ namespace Arthesanatus.Controllers
             return query;
 
         }
-
         protected override void Dispose(bool disposing)
         {
             if(disposing)
