@@ -11,7 +11,7 @@ using Arthesanatus.Models.Context;
 
 namespace Arthesanatus.Controllers
 {
-    public class LinhasController : Controller
+    public class LinhasController:Controller
     {
         private ArthesContext db = new ArthesContext();
 
@@ -25,12 +25,12 @@ namespace Arthesanatus.Controllers
         // GET: Linhas/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Linha linha = db.LINHAS.Find(id);
-            if (linha == null)
+            if(linha == null)
             {
                 return HttpNotFound();
             }
@@ -40,9 +40,9 @@ namespace Arthesanatus.Controllers
         // GET: Linhas/Create
         public ActionResult Create()
         {
-            ViewBag.CorID = new SelectList(db.CORES, "CorID", "Nome");
-            ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome");
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome");
+            ViewBag.CorID = new SelectList(db.CORES,"CorID","Nome");
+            ViewBag.FabricanteID = new SelectList(db.FABRICANTES,"FabricanteID","Nome");
+            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS,"TipoLinhaID","Nome");
             return View();
         }
 
@@ -53,34 +53,34 @@ namespace Arthesanatus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "LinhaID,QtdFechada,QtdAberta,TipoLinhaID,FabricanteID,CorID")] Linha linha)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 db.LINHAS.Add(linha);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CorID = new SelectList(db.CORES, "CorID", "Nome", linha.CorID);
-            ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome", linha.FabricanteID);
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", linha.TipoLinhaID);
+            ViewBag.CorID = new SelectList(db.CORES,"CorID","Nome",linha.CorID);
+            ViewBag.FabricanteID = new SelectList(db.FABRICANTES,"FabricanteID","Nome",linha.FabricanteID);
+            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS,"TipoLinhaID","Nome",linha.TipoLinhaID);
             return View(linha);
         }
 
         // GET: Linhas/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Linha linha = db.LINHAS.Find(id);
-            if (linha == null)
+            if(linha == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CorID = new SelectList(db.CORES, "CorID", "Nome", linha.CorID);
-            ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome", linha.FabricanteID);
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", linha.TipoLinhaID);
+            ViewBag.CorID = new SelectList(db.CORES,"CorID","Nome",linha.CorID);
+            ViewBag.FabricanteID = new SelectList(db.FABRICANTES,"FabricanteID","Nome",linha.FabricanteID);
+            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS,"TipoLinhaID","Nome",linha.TipoLinhaID);
             return View(linha);
         }
 
@@ -91,27 +91,27 @@ namespace Arthesanatus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "LinhaID,QtdFechada,QtdAberta,TipoLinhaID,FabricanteID,CorID")] Linha linha)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 db.Entry(linha).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CorID = new SelectList(db.CORES, "CorID", "Nome", linha.CorID);
-            ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome", linha.FabricanteID);
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", linha.TipoLinhaID);
+            ViewBag.CorID = new SelectList(db.CORES,"CorID","Nome",linha.CorID);
+            ViewBag.FabricanteID = new SelectList(db.FABRICANTES,"FabricanteID","Nome",linha.FabricanteID);
+            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS,"TipoLinhaID","Nome",linha.TipoLinhaID);
             return View(linha);
         }
 
         // GET: Linhas/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Linha linha = db.LINHAS.Find(id);
-            if (linha == null)
+            if(linha == null)
             {
                 return HttpNotFound();
             }
@@ -131,7 +131,7 @@ namespace Arthesanatus.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
+            if(disposing)
             {
                 db.Dispose();
             }
