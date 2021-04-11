@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using Arthesanatus.Models;
 using Arthesanatus.Models.Context;
+using PagedList.Mvc;
+using PagedList;
+
 
 namespace Arthesanatus.Controllers
 {
@@ -16,18 +19,18 @@ namespace Arthesanatus.Controllers
         private ArthesContext db = new ArthesContext();
 
         // GET: Cores
-        public ActionResult Index(string ChaveBusca = "")
+        public ActionResult Index()
         {
-            var q = db.CORES.AsQueryable();
+            return View();
+        }
 
-            if(!string.IsNullOrEmpty(ChaveBusca))
-            {
-                q = q.Where(p => p.Nome.Contains(ChaveBusca));
-            }
-
-            q = q.OrderBy(p => p.Nome);
-
-            return View(q.ToList());
+        [HttpGet]
+        public ActionResult Index(string searching, int? i)
+        {
+            return View(db.CORES
+                            .Where(c => c.CorCodigo.ToString().Contains(searching) ||
+                            c.Nome.Contains(searching) ||
+                            searching.Equals(null)).ToList().ToPagedList(i ?? 1, 10));
         }
 
         // GET: Cores/Details/5
@@ -123,16 +126,6 @@ namespace Arthesanatus.Controllers
             db.CORES.Remove(cor);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        public IEnumerable<Cor> TestaCores()
-        {
-            var query = (from c in db.CORES
-                         where c.Nome.Contains("ama")
-                         select c);
-
-            return query;
-
         }
         protected override void Dispose(bool disposing)
         {

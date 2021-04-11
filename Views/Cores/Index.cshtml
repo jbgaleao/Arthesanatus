@@ -1,72 +1,69 @@
-﻿@model IEnumerable<Arthesanatus.Models.Cor>
+﻿@model IPagedList<Arthesanatus.Models.Cor>
 
 @{
     ViewBag.Title = "Listagem";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using PagedList.Mvc;
+@using PagedList;
+
 <h2>Listagem</h2>
 <h4>Cores das Linhas</h4>
 <br />
 
-<div class="panel panel-default">
-    <!-- Default panel contents -->
-    <div class="panel-heading" style="font-weight:bolder;">Cores</div>
-    <div class="panel-body">
-        <div>
-            <div class="navbar-form navbar-left col-lg-4" style="padding-top:8px;">
-                @Html.ActionLink("Cadastrar Novo Registro","Create")
-            </div>
-            <form class="navbar-form navbar-right col-lg-4" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Código/Nome" id="parametro">
-                </div>
-                @Html.ActionLink("Pesquisar","Index",new { ChaveBusca = "pa"},new { @class = "btn btn-primary" })
-                @*<button type="submit" value="buscar" class="btn btn-default">Pesquisar</button>*@
-            </form>
-        </div>
-
+<div class="navbar-form">
+    <div class="col-lg-6">
+        @Html.ActionLink("Cadastrar Novo Registro","Create")
     </div>
 
-    <!-- Table -->
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CorCodigo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th style="width: 21%" class="text-right">
-                @Html.Label("Ações")
-            </th>
-        </tr>
-
-        @foreach(var item in Model)
+    <div>
+        @using(Html.BeginForm("Index","Cores",FormMethod.Get))
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CorCodigo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td class="text-right">
-                    @Html.ActionLink("Editar","Edit",new { id = item.CorID },new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Detalhes","Details",new { id = item.CorID },new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Excluir","Delete",new { id = item.CorID },new { @class = "btn btn-danger" })
-                </td>
-            </tr>
+            <form class="navbar-form" role="search">
+                <div class="form-group col-lg-6" style="text-align:right; padding-bottom:18px;">
+                    <input type="text" class="form-control" placeholder="Código ou Nome da Cor..." name="searching" style="width:100%">
+                    <input type="submit" class="btn btn-default" value="Pesquisar">
+                </div>
+            </form>
         }
-
-    </table>
+    </div>
 </div>
 
-<script>
-    function captutaParametro() {
-        return document.getElementById("parametro").value
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CorCodigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Nome)
+        </th>
+        <th style="width: 21%">
+            
+        </th>
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorCodigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td class="text-right">
+                @Html.ActionLink("Editar","Edit",new { id = item.CorID },new { @class = "btn btn-primary" })
+                @Html.ActionLink("Detalhes","Details",new { id = item.CorID },new { @class = "btn btn-warning" })
+                @Html.ActionLink("Excluir","Delete",new { id = item.CorID },new { @class = "btn btn-danger" })
+            </td>
+        </tr>
     }
-</script>
+</table>
+
+<br />
+@Html.PagedListPager(Model,i => Url.Action("Index","Cores",new { i,search = Request.QueryString["search"] }))
+
 
 
 
