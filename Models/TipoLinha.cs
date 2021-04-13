@@ -10,6 +10,7 @@ namespace Arthesanatus.Models
         public TipoLinha( )
         {
             this.Linhas = new HashSet<Linha>();
+            this.Cores = new HashSet<Cor>();
         }
 
         [Key]
@@ -34,5 +35,6 @@ namespace Arthesanatus.Models
 
 
         public virtual ICollection<Linha> Linhas { get; set; }
+        public virtual ICollection<Cor> Cores { get; set; }
     }
 }

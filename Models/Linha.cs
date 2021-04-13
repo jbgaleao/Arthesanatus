@@ -37,13 +37,6 @@ namespace Arthesanatus.Models
         public int FabricanteID { get; set; }
         public virtual Fabricante Fabricante { get; set; }
 
-        [Required]
-        [ForeignKey( "Cor" )]
-        [Display( Name = "Cor" )]
-        public int CorID { get; set; }
-        public virtual Cor Cor { get; set; }
-
-
         public virtual ICollection<Receita> Receitas { get; set; }
     }
 }

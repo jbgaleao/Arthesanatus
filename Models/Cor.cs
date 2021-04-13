@@ -9,7 +9,7 @@ namespace Arthesanatus.Models
     {
         public Cor()
         {
-            this.Linhas = new HashSet<Linha>();
+
         }
 
         [Key]
@@ -24,6 +24,10 @@ namespace Arthesanatus.Models
         [Display( Name = "Nome da Cor" )]
         public string Nome { get; set; }
 
-        public virtual ICollection<Linha> Linhas { get; set; }
+        [Required]
+        [ForeignKey("TipoLinha")]
+        [Display(Name = "Tipo de Linha")]
+        public int TipoLinhaID { get; set; }
+        public virtual TipoLinha TipoLinha { get; set; }
     }
 }
