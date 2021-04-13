@@ -134,9 +134,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CoresController.cs" />
+    <Compile Include="Controllers\FabricantesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LinhasController.cs" />
     <Compile Include="Controllers\ReceitasController.cs" />
     <Compile Include="Controllers\RevistasController.cs" />
+    <Compile Include="Controllers\TiposLinhaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,6 +163,10 @@
     <Compile Include="Migrations\202104120417366_AlteracaoTabLinhasTipoLinhaCores.cs" />
     <Compile Include="Migrations\202104120417366_AlteracaoTabLinhasTipoLinhaCores.Designer.cs">
       <DependentUpon>202104120417366_AlteracaoTabLinhasTipoLinhaCores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104130331167_AjustesTabelaCores.cs" />
+    <Compile Include="Migrations\202104130331167_AjustesTabelaCores.Designer.cs">
+      <DependentUpon>202104130331167_AjustesTabelaCores.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\ArthesContext.cs" />
@@ -308,16 +316,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Revistas\Create.cshtml" />
-    <Content Include="Views\Revistas\Delete.cshtml" />
-    <Content Include="Views\Revistas\Details.cshtml" />
-    <Content Include="Views\Revistas\Edit.cshtml" />
-    <Content Include="Views\Revistas\Index.cshtml" />
-    <Content Include="Views\Receitas\Create.cshtml" />
-    <Content Include="Views\Receitas\Delete.cshtml" />
-    <Content Include="Views\Receitas\Details.cshtml" />
-    <Content Include="Views\Receitas\Edit.cshtml" />
-    <Content Include="Views\Receitas\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -329,6 +327,36 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_AvisoExclusao.cshtml" />
+    <Content Include="Views\Revistas\Create.cshtml" />
+    <Content Include="Views\Revistas\Delete.cshtml" />
+    <Content Include="Views\Revistas\Details.cshtml" />
+    <Content Include="Views\Revistas\Edit.cshtml" />
+    <Content Include="Views\Revistas\Index.cshtml" />
+    <Content Include="Views\Receitas\Create.cshtml" />
+    <Content Include="Views\Receitas\Delete.cshtml" />
+    <Content Include="Views\Receitas\Details.cshtml" />
+    <Content Include="Views\Receitas\Edit.cshtml" />
+    <Content Include="Views\Receitas\Index.cshtml" />
+    <Content Include="Views\Linhas\Create.cshtml" />
+    <Content Include="Views\Linhas\Delete.cshtml" />
+    <Content Include="Views\Linhas\Details.cshtml" />
+    <Content Include="Views\Linhas\Edit.cshtml" />
+    <Content Include="Views\Linhas\Index.cshtml" />
+    <Content Include="Views\Fabricantes\Create.cshtml" />
+    <Content Include="Views\Fabricantes\Delete.cshtml" />
+    <Content Include="Views\Fabricantes\Details.cshtml" />
+    <Content Include="Views\Fabricantes\Edit.cshtml" />
+    <Content Include="Views\Fabricantes\Index.cshtml" />
+    <Content Include="Views\TiposLinha\Create.cshtml" />
+    <Content Include="Views\TiposLinha\Delete.cshtml" />
+    <Content Include="Views\TiposLinha\Details.cshtml" />
+    <Content Include="Views\TiposLinha\Edit.cshtml" />
+    <Content Include="Views\TiposLinha\Index.cshtml" />
+    <Content Include="Views\Cores\Create.cshtml" />
+    <Content Include="Views\Cores\Delete.cshtml" />
+    <Content Include="Views\Cores\Details.cshtml" />
+    <Content Include="Views\Cores\Edit.cshtml" />
+    <Content Include="Views\Cores\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repository\" />
@@ -354,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104120417366_AlteracaoTabLinhasTipoLinhaCores.resx">
       <DependentUpon>202104120417366_AlteracaoTabLinhasTipoLinhaCores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104130331167_AjustesTabelaCores.resx">
+      <DependentUpon>202104130331167_AjustesTabelaCores.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

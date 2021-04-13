@@ -11,116 +11,107 @@ using Arthesanatus.Models.Context;
 
 namespace Arthesanatus.Controllers
 {
-    public class LinhasController : Controller
+    public class TiposLinhaController : Controller
     {
         private ArthesContext db = new ArthesContext();
 
-        // GET: Linhas
+        // GET: TiposLinha
         public ActionResult Index()
         {
-            var lINHAS = db.LINHAS.Include(l => l.Fabricante).Include(l => l.TipoLinha);
-            return View(lINHAS.ToList());
+            return View(db.TIPOSLINHAS.ToList());
         }
 
-        // GET: Linhas/Details/5
+        // GET: TiposLinha/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Linha linha = db.LINHAS.Find(id);
-            if (linha == null)
+            TipoLinha tipoLinha = db.TIPOSLINHAS.Find(id);
+            if (tipoLinha == null)
             {
                 return HttpNotFound();
             }
-            return View(linha);
+            return View(tipoLinha);
         }
 
-        // GET: Linhas/Create
+        // GET: TiposLinha/Create
         public ActionResult Create()
         {
-            ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome");
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome");
             return View();
         }
 
-        // POST: Linhas/Create
+        // POST: TiposLinha/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LinhaID,TipoLinhaID,FabricanteID")] Linha linha)
+        public ActionResult Create([Bind(Include = "TipoLinhaID,Nome,Descricao,DadosTecnicos")] TipoLinha tipoLinha)
         {
             if (ModelState.IsValid)
             {
-                db.LINHAS.Add(linha);
+                db.TIPOSLINHAS.Add(tipoLinha);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome", linha.FabricanteID);
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", linha.TipoLinhaID);
-            return View(linha);
+            return View(tipoLinha);
         }
 
-        // GET: Linhas/Edit/5
+        // GET: TiposLinha/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Linha linha = db.LINHAS.Find(id);
-            if (linha == null)
+            TipoLinha tipoLinha = db.TIPOSLINHAS.Find(id);
+            if (tipoLinha == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome", linha.FabricanteID);
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", linha.TipoLinhaID);
-            return View(linha);
+            return View(tipoLinha);
         }
 
-        // POST: Linhas/Edit/5
+        // POST: TiposLinha/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LinhaID,TipoLinhaID,FabricanteID")] Linha linha)
+        public ActionResult Edit([Bind(Include = "TipoLinhaID,Nome,Descricao,DadosTecnicos")] TipoLinha tipoLinha)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(linha).State = EntityState.Modified;
+                db.Entry(tipoLinha).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FabricanteID = new SelectList(db.FABRICANTES, "FabricanteID", "Nome", linha.FabricanteID);
-            ViewBag.TipoLinhaID = new SelectList(db.TIPOSLINHAS, "TipoLinhaID", "Nome", linha.TipoLinhaID);
-            return View(linha);
+            return View(tipoLinha);
         }
 
-        // GET: Linhas/Delete/5
+        // GET: TiposLinha/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Linha linha = db.LINHAS.Find(id);
-            if (linha == null)
+            TipoLinha tipoLinha = db.TIPOSLINHAS.Find(id);
+            if (tipoLinha == null)
             {
                 return HttpNotFound();
             }
-            return View(linha);
+            return View(tipoLinha);
         }
 
-        // POST: Linhas/Delete/5
+        // POST: TiposLinha/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Linha linha = db.LINHAS.Find(id);
-            db.LINHAS.Remove(linha);
+            TipoLinha tipoLinha = db.TIPOSLINHAS.Find(id);
+            db.TIPOSLINHAS.Remove(tipoLinha);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

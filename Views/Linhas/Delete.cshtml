@@ -1,4 +1,4 @@
-﻿@model Arthesanatus.Models.Fabricante
+﻿@model Arthesanatus.Models.Linha
 
 @{
     ViewBag.Title = "Excluir";
@@ -9,15 +9,23 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Fabricante</h4>
+    <h4>Linha</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Nome)
+            @Html.DisplayNameFor(model => model.Fabricante.Nome)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Nome)
+            @Html.DisplayFor(model => model.Fabricante.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoLinha.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoLinha.Nome)
         </dd>
 
     </dl>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Arthesanatus.Models.Cor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Novo Registro", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoLinha.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorCodigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdFechada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QtdAberta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoLinha.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorCodigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtdFechada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QtdAberta)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.CorID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.CorID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CorID })
+        </td>
+    </tr>
+}
+
+</table>

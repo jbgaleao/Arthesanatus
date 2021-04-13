@@ -18,14 +18,6 @@ namespace Arthesanatus.Models
         public int LinhaID { get; set; }
 
         [Required]
-        [Display( Name = "Novelos Fechados" )]
-        public int QtdFechada { get; set; }
-
-        [Required]
-        [Display( Name = "Novelos Abertos" )]
-        public int QtdAberta { get; set; }
-
-        [Required]
         [ForeignKey( "TipoLinha" )]
         [Display( Name = "Tipo da Linha" )]
         public int TipoLinhaID { get; set; }

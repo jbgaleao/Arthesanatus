@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Arthesanatus.Models.Receita>
+﻿@model IEnumerable<Arthesanatus.Models.TipoLinha>
 
 @{
     ViewBag.Title = "Index";
@@ -13,13 +13,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Revista.Tema)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DadosTecnicos)
         </th>
         <th></th>
     </tr>
@@ -27,18 +27,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Revista.Tema)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Descricao)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.ReceitaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReceitaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReceitaId })
+            @Html.DisplayFor(modelItem => item.DadosTecnicos)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.TipoLinhaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TipoLinhaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TipoLinhaID })
         </td>
     </tr>
 }
