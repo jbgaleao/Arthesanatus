@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Arthesanatus.Models.Revista>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroEdicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnoEdicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MesEdicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tema)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroEdicao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnoEdicao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MesEdicao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tema)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Foto)
+        </td>
+
+    </tr>
+}
+
+</table>

@@ -116,6 +116,16 @@ namespace Arthesanatus.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public ActionResult VerReceitasRelacionadas(int codRevista)
+        {
+            IEnumerable<Receita> receitas = from r in db.RECEITAS.AsQueryable()
+                                                .Where(r => r.Equals(codRevista))
+                                                select r;
+
+            return View(receitas);
+
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

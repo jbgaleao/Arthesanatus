@@ -353,6 +353,7 @@
     <Content Include="Views\Cores\Details.cshtml" />
     <Content Include="Views\Cores\Edit.cshtml" />
     <Content Include="Views\Cores\Index.cshtml" />
+    <Content Include="Views\Revistas\VerReceitasRelacionadas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
