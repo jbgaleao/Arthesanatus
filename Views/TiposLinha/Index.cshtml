@@ -5,42 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Listagem - Tipo de Linha</h2>
 
 <p>
-    @Html.ActionLink("Novo Registro", "Create")
+    @Html.ActionLink("Novo Registro","Create")
 </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
-        <th>
+        <th style="width: 15%;">
             @Html.DisplayNameFor(model => model.Nome)
         </th>
-        <th>
+        <th style="width: 35%;">
             @Html.DisplayNameFor(model => model.Descricao)
         </th>
-        <th>
+        <th style="width: 35%;">
             @Html.DisplayNameFor(model => model.DadosTecnicos)
         </th>
-        <th></th>
+        <th>
+
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DadosTecnicos)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.TipoLinhaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TipoLinhaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TipoLinhaID })
-        </td>
-    </tr>
-}
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DadosTecnicos)
+            </td>
+            <td style="text-align:right">
+                @Html.ActionLink("Editar","Edit",new { id = item.TipoLinhaID }) |
+                @Html.ActionLink("Details","Details",new { id = item.TipoLinhaID }) |
+                @Html.ActionLink("Delete","Delete",new { id = item.TipoLinhaID })
+            </td>
+        </tr>
+    }
 
 </table>
