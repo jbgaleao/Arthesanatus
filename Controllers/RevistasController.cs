@@ -8,10 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using Arthesanatus.Models;
 using Arthesanatus.Models.Context;
+using Arthesanatus.ViewModels;
 
 namespace Arthesanatus.Controllers
 {
-    public class RevistasController : Controller
+    public class RevistasController:Controller
     {
         private ArthesContext db = new ArthesContext();
 
@@ -24,12 +25,12 @@ namespace Arthesanatus.Controllers
         // GET: Revistas/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Revista revista = db.REVISTAS.Find(id);
-            if (revista == null)
+            if(revista == null)
             {
                 return HttpNotFound();
             }
@@ -49,7 +50,7 @@ namespace Arthesanatus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RevistaID,NumeroEdicao,AnoEdicao,MesEdicao,Tema,Foto")] Revista revista)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 db.REVISTAS.Add(revista);
                 db.SaveChanges();
@@ -62,12 +63,12 @@ namespace Arthesanatus.Controllers
         // GET: Revistas/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Revista revista = db.REVISTAS.Find(id);
-            if (revista == null)
+            if(revista == null)
             {
                 return HttpNotFound();
             }
@@ -81,7 +82,7 @@ namespace Arthesanatus.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "RevistaID,NumeroEdicao,AnoEdicao,MesEdicao,Tema,Foto")] Revista revista)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 db.Entry(revista).State = EntityState.Modified;
                 db.SaveChanges();
@@ -93,12 +94,12 @@ namespace Arthesanatus.Controllers
         // GET: Revistas/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Revista revista = db.REVISTAS.Find(id);
-            if (revista == null)
+            if(revista == null)
             {
                 return HttpNotFound();
             }
@@ -116,19 +117,20 @@ namespace Arthesanatus.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult VerReceitasRelacionadas(int codRevista)
+        [HttpGet]
+        public ActionResult RevistasReceitasViewModel(int codRevista)
         {
-            IEnumerable<Receita> receitas = from r in db.RECEITAS.AsQueryable()
-                                                .Where(r => r.Equals(codRevista))
-                                                select r;
+            IList<RevistasReceitasViewModel> receitas = (from r in db.RECEITAS
+                                                         join rv in db.REVISTAS
+                                                         on r.RevistaId equals rv.RevistaID
+                                                         where r.RevistaId.Equals(codRevista)
+                                                         select new { rv.Tema,r.Nome,r.Descricao }).AsQueryable<RevistasReceitasViewModel>;
 
             return View(receitas);
-
         }
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
+            if(disposing)
             {
                 db.Dispose();
             }

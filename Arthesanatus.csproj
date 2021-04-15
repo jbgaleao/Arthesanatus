@@ -176,6 +176,7 @@
     <Compile Include="Models\Mes.cs" />
     <Compile Include="Models\Receita.cs" />
     <Compile Include="Models\Revista.cs" />
+    <Compile Include="ViewModels\RevistasReceitasViewModel.cs" />
     <Compile Include="Models\TipoLinha.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -353,12 +354,11 @@
     <Content Include="Views\Cores\Details.cshtml" />
     <Content Include="Views\Cores\Edit.cshtml" />
     <Content Include="Views\Cores\Index.cshtml" />
-    <Content Include="Views\Revistas\VerReceitasRelacionadas.cshtml" />
+    <Content Include="Views\Revistas\RevistasReceitasViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Repository\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
