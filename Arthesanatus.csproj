@@ -188,6 +188,9 @@
     <Content Include="Content\img\index-almofada.jpg" />
     <Content Include="Content\img\index-bolsa.jpg" />
     <Content Include="Content\img\index-boneca.jpg" />
+    <Content Include="Content\img\maxresdefault-almofada.jpg" />
+    <Content Include="Content\img\maxresdefault-bonecas.jpg" />
+    <Content Include="Content\img\maxresdefault.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -354,7 +357,7 @@
     <Content Include="Views\Cores\Details.cshtml" />
     <Content Include="Views\Cores\Edit.cshtml" />
     <Content Include="Views\Cores\Index.cshtml" />
-    <Content Include="Views\Revistas\RevistasReceitasViewModel.cshtml" />
+    <Content Include="Views\Revistas\RevistasReceitasVM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

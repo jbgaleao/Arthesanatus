@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arthesanatus.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -20,7 +21,6 @@ namespace Arthesanatus.Models.Context
         public DbSet<Receita> RECEITAS { get; set; }
         public DbSet<Revista> REVISTAS { get; set; }
         public DbSet<TipoLinha> TIPOSLINHAS { get; set; }
-
-        public System.Data.Entity.DbSet<Arthesanatus.ViewModels.RevistasReceitasViewModel> RevistasReceitasViewModels { get; set; }
+        public DbSet<RevistasReceitasViewModel> REVISTASRECEITASVIEWMODELS { get; set; }
     }
 }

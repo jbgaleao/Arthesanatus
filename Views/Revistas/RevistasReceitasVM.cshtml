@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Arthesanatus.Models.Receita>
+
+@{
+    ViewBag.Title = "Receitas - Revista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="alert alert-info" role="alert">
+    <h2>Tema: @ViewBag.rev.Tema</h2>
+    <p>
+        <div style="padding-left: 40px;">
+            <i><strong>Edição Número: @ViewBag.rev.NumeroEdicao</strong></i>
+        </div>
+        <div style="padding-left: 40px; font-size:smaller;">
+            <i>@ViewBag.rev.MesEdicao - @ViewBag.rev.AnoEdicao</i>
+        </div>
+
+    </p>
+</div>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+
+<div>
+    @Html.ActionLink("Retornar à Listagem","Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

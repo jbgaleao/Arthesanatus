@@ -118,15 +118,18 @@ namespace Arthesanatus.Controllers
         }
 
         [HttpGet]
-        public ActionResult RevistasReceitasViewModel(int codRevista)
-        {
-            IList<RevistasReceitasViewModel> receitas = (from r in db.RECEITAS
-                                                         join rv in db.REVISTAS
-                                                         on r.RevistaId equals rv.RevistaID
-                                                         where r.RevistaId.Equals(codRevista)
-                                                         select new { rv.Tema,r.Nome,r.Descricao }).AsQueryable<RevistasReceitasViewModel>;
+        public ActionResult RevistasReceitasVM(int codRevista,string temaRevista){
+        
+             List<Receita> receita = (from rec in db.RECEITAS
+                        where rec.RevistaId.Equals(codRevista)
+                        select rec).ToList();
 
-            return View(receitas);
+            Revista revista = db.REVISTAS.Find(codRevista);
+
+            ViewBag.rev = revista;
+
+            return View(receita);
+
         }
         protected override void Dispose(bool disposing)
         {

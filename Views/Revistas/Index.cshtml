@@ -49,7 +49,7 @@
                 @Html.DisplayFor(modelItem => item.Foto)
             </td>
             <td style="text-align:right">
-                @Html.ActionLink("Revistas","RevistasReceitasViewModel",new { codRevista = item.RevistaID }) |
+                @Html.ActionLink("Ver as Receitas","RevistasReceitasVM",new { codRevista = item.RevistaID, temaRevista = item.Tema }) |
                 @Html.ActionLink("Editar","Edit",new { id = item.RevistaID }) |
                 @Html.ActionLink("Details","Details",new { id = item.RevistaID }) |
                 @Html.ActionLink("Delete","Delete",new { id = item.RevistaID })
