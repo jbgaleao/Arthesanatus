@@ -136,6 +136,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CoresController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
+    <Compile Include="Controllers\FotoReceitasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinhasController.cs" />
     <Compile Include="Controllers\ReceitasController.cs" />
@@ -168,10 +169,19 @@
     <Compile Include="Migrations\202104130331167_AjustesTabelaCores.Designer.cs">
       <DependentUpon>202104130331167_AjustesTabelaCores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104300403500_CriaTabelaFotoReceitas.cs" />
+    <Compile Include="Migrations\202104300403500_CriaTabelaFotoReceitas.Designer.cs">
+      <DependentUpon>202104300403500_CriaTabelaFotoReceitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104300416280_AlteraTabelaFotoReceitas.cs" />
+    <Compile Include="Migrations\202104300416280_AlteraTabelaFotoReceitas.Designer.cs">
+      <DependentUpon>202104300416280_AlteraTabelaFotoReceitas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\ArthesContext.cs" />
     <Compile Include="Models\Cor.cs" />
     <Compile Include="Models\Fabricante.cs" />
+    <Compile Include="Models\FotoReceita.cs" />
     <Compile Include="Models\Linha.cs" />
     <Compile Include="Models\Mes.cs" />
     <Compile Include="Models\Receita.cs" />
@@ -358,6 +368,11 @@
     <Content Include="Views\Cores\Edit.cshtml" />
     <Content Include="Views\Cores\Index.cshtml" />
     <Content Include="Views\Revistas\RevistasReceitasVM.cshtml" />
+    <Content Include="Views\FotoReceitas\Create.cshtml" />
+    <Content Include="Views\FotoReceitas\Delete.cshtml" />
+    <Content Include="Views\FotoReceitas\Details.cshtml" />
+    <Content Include="Views\FotoReceitas\Edit.cshtml" />
+    <Content Include="Views\FotoReceitas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -386,6 +401,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104130331167_AjustesTabelaCores.resx">
       <DependentUpon>202104130331167_AjustesTabelaCores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104300403500_CriaTabelaFotoReceitas.resx">
+      <DependentUpon>202104300403500_CriaTabelaFotoReceitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104300416280_AlteraTabelaFotoReceitas.resx">
+      <DependentUpon>202104300416280_AlteraTabelaFotoReceitas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
