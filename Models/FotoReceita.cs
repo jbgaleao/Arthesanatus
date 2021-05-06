@@ -25,8 +25,12 @@ namespace Arthesanatus.Models
 
         [Required]
         [MaxLength( 1024 )]
-        [Display( Name = "Caminho da Foto" )]
-        public string CaminhoFoto { get; set; }
+        [Display( Name = "Foto" )]
+        [DataType(DataType.ImageUrl)]
+        public string Foto { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase FileImage { get; set; }
 
         [Required]
         [ForeignKey( "Receita" )]

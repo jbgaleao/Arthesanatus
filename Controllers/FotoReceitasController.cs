@@ -18,8 +18,8 @@ namespace Arthesanatus.Controllers
         // GET: FotoReceitas
         public ActionResult Index()
         {
-            var fOTOSRECEITAS = db.FOTOSRECEITAS.Include(f => f.Receita);
-            return View(fOTOSRECEITAS.ToList());
+            var _FOTOSRECEITAS = db.FOTOSRECEITAS.Include(f => f.Receita);
+            return View(_FOTOSRECEITAS.ToList());
         }
 
         // GET: FotoReceitas/Details/5
