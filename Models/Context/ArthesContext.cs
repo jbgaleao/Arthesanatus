@@ -21,8 +21,7 @@ namespace Arthesanatus.Models.Context
         public DbSet<Receita> RECEITAS { get; set; }
         public DbSet<Revista> REVISTAS { get; set; }
         public DbSet<TipoLinha> TIPOSLINHAS { get; set; }
-        //public DbSet<RevistasReceitasViewModel> REVISTASRECEITASVIEWMODELS { get; set; }
-        public DbSet<FotoReceita> FOTOSRECEITAS { get; set; }
+
 
     }
 }

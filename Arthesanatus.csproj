@@ -136,7 +136,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CoresController.cs" />
     <Compile Include="Controllers\FabricantesController.cs" />
-    <Compile Include="Controllers\FotoReceitasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LinhasController.cs" />
     <Compile Include="Controllers\ReceitasController.cs" />
@@ -177,11 +176,14 @@
     <Compile Include="Migrations\202104300416280_AlteraTabelaFotoReceitas.Designer.cs">
       <DependentUpon>202104300416280_AlteraTabelaFotoReceitas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105060450489_Ecluir_Tab_FotoReceitas.cs" />
+    <Compile Include="Migrations\202105060450489_Ecluir_Tab_FotoReceitas.Designer.cs">
+      <DependentUpon>202105060450489_Ecluir_Tab_FotoReceitas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Context\ArthesContext.cs" />
     <Compile Include="Models\Cor.cs" />
     <Compile Include="Models\Fabricante.cs" />
-    <Compile Include="Models\FotoReceita.cs" />
     <Compile Include="Models\Linha.cs" />
     <Compile Include="Models\Mes.cs" />
     <Compile Include="Models\Receita.cs" />
@@ -368,11 +370,6 @@
     <Content Include="Views\Cores\Edit.cshtml" />
     <Content Include="Views\Cores\Index.cshtml" />
     <Content Include="Views\Revistas\RevistasReceitasVM.cshtml" />
-    <Content Include="Views\FotoReceitas\Create.cshtml" />
-    <Content Include="Views\FotoReceitas\Delete.cshtml" />
-    <Content Include="Views\FotoReceitas\Details.cshtml" />
-    <Content Include="Views\FotoReceitas\Edit.cshtml" />
-    <Content Include="Views\FotoReceitas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -407,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104300416280_AlteraTabelaFotoReceitas.resx">
       <DependentUpon>202104300416280_AlteraTabelaFotoReceitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105060450489_Ecluir_Tab_FotoReceitas.resx">
+      <DependentUpon>202105060450489_Ecluir_Tab_FotoReceitas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

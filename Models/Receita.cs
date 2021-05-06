@@ -10,7 +10,6 @@ namespace Arthesanatus.Models
         public Receita()
         {
             this.Linhas = new HashSet<Linha>();
-            this.FotoReceitas = new HashSet<FotoReceita>();
         }
 
 
@@ -34,7 +33,6 @@ namespace Arthesanatus.Models
         public int RevistaId { get; set; }
         public virtual Revista Revista { get; set; }
 
-        public virtual ICollection<FotoReceita> FotoReceitas { get; set; }
         public virtual ICollection<Linha> Linhas { get; set; }
 
     }
