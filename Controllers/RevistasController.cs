@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Arthesanatus.Models;
 using Arthesanatus.Models.Context;
-using Arthesanatus.ViewModels;
+using Arthesanatus.Util;
 
 namespace Arthesanatus.Controllers
 {
@@ -16,13 +14,13 @@ namespace Arthesanatus.Controllers
     {
         private ArthesContext db = new ArthesContext();
 
-        // GET: Revistas
+
         public ActionResult Index()
         {
             return View(db.REVISTAS.ToList());
         }
 
-        // GET: Revistas/Details/5
+
         public ActionResult Details(int? id)
         {
             if(id == null)
@@ -37,21 +35,23 @@ namespace Arthesanatus.Controllers
             return View(revista);
         }
 
-        // GET: Revistas/Create
+
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Revistas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RevistaID,NumeroEdicao,AnoEdicao,MesEdicao,Tema,Foto")] Revista revista)
+        public ActionResult Create(Revista revista)
         {
             if(ModelState.IsValid)
             {
+                if(revista.ArquivoFoto != null)
+                {
+                    revista.Foto = FilesHelper.UploadPhoto(revista.ArquivoFoto);
+                }
                 db.REVISTAS.Add(revista);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,9 +60,9 @@ namespace Arthesanatus.Controllers
             return View(revista);
         }
 
-        // GET: Revistas/Edit/5
+
         public ActionResult Edit(int? id)
-        {
+       {
             if(id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -75,9 +75,7 @@ namespace Arthesanatus.Controllers
             return View(revista);
         }
 
-        // POST: Revistas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "RevistaID,NumeroEdicao,AnoEdicao,MesEdicao,Tema,Foto")] Revista revista)
@@ -91,7 +89,7 @@ namespace Arthesanatus.Controllers
             return View(revista);
         }
 
-        // GET: Revistas/Delete/5
+
         public ActionResult Delete(int? id)
         {
             if(id == null)
@@ -106,7 +104,7 @@ namespace Arthesanatus.Controllers
             return View(revista);
         }
 
-        // POST: Revistas/Delete/5
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

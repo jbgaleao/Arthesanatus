@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
 
 namespace Arthesanatus.Models
 {
-    [Table( "Revista" )]
+    [Table("Revista")]
     public class Revista
     {
-        public Revista( )
+        public Revista()
         {
             Receitas = new List<Receita>();
         }
@@ -16,26 +17,29 @@ namespace Arthesanatus.Models
         public int RevistaID { get; set; }
 
         [Required]
-        [Display( Name = "Número da Edição" )]
-        [Range( 1, 9999 )]
+        [Display(Name = "Número da Edição")]
+        [Range(1,9999)]
         public int NumeroEdicao { get; set; }
 
         [Required]
-        [Display( Name = "Ano da Edição" )]
-        [Range(2017, 2025)]
+        [Display(Name = "Ano da Edição")]
+        [Range(2017,2025)]
         public int AnoEdicao { get; set; }
 
         [Required]
-        [Display( Name = "Mês da Edição" )]
+        [Display(Name = "Mês da Edição")]
         public Mes MesEdicao { get; set; }
 
         [Required]
-        [MaxLength( 150 )]
-        [Display( Name = "Tema" )]
+        [MaxLength(150)]
+        [Display(Name = "Tema")]
         public string Tema { get; set; }
 
-        [Display( Name = "Foto de Capa" )]
+        [Display(Name = "Foto de Capa")]
         public byte[] Foto { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ArquivoFoto { get; set; }
 
         public virtual List<Receita> Receitas { get; set; }
 

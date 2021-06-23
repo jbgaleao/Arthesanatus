@@ -46,10 +46,10 @@
                 @Html.DisplayFor(modelItem => item.Tema)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Foto)
+                <img src="~/Content/img/index-bolsa.jpg" alt="Image" style="width:100px;height:150px;max-width: 100%; height: auto;" />
             </td>
             <td style="text-align:right">
-                @Html.ActionLink("Ver as Receitas","RevistasReceitasVM",new { codRevista = item.RevistaID, temaRevista = item.Tema }) |
+                @Html.ActionLink("Ver as Receitas","RevistasReceitasVM",new { codRevista = item.RevistaID,temaRevista = item.Tema }) |
                 @Html.ActionLink("Editar","Edit",new { id = item.RevistaID }) |
                 @Html.ActionLink("Details","Details",new { id = item.RevistaID }) |
                 @Html.ActionLink("Delete","Delete",new { id = item.RevistaID })

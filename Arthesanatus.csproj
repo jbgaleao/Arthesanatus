@@ -188,6 +188,7 @@
     <Compile Include="Models\Mes.cs" />
     <Compile Include="Models\Receita.cs" />
     <Compile Include="Models\Revista.cs" />
+    <Compile Include="Util\FilesHelper.cs" />
     <Compile Include="ViewModels\RevistasReceitasViewModel.cs" />
     <Compile Include="Models\TipoLinha.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -373,6 +374,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\capas\" />
     <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
